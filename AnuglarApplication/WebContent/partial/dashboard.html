@@ -1,0 +1,17 @@
+<div class="page-header" ng-init="dashboardCtrl.init()"><h3><center>Projects Created</center></h3></div>
+
+
+	
+{{dashboardCtrl.TextMessage}}
+
+	<div ng-repeat="project in dashboardCtrl.projects">
+			<div><b>Project Title:</b>{{ project.title}} <br></div>
+			<div><b>Short Desc:</b>{{ project.shortdesc}}</div>
+			<div><b>End Date:</b>{{ project.endDate}}</div>
+			<div><b>Goal:</b>{{ project.goal | currency:"$":2}}</div>
+			<div><b>Likes:</b>{{ project.liked}}</div>
+			<div><b>Dislikes:</b>{{ project.hate}}</div>
+			<td><td><a ng-click="dashboardCtrl.viewProject({project})"
+					class="btn btn-primary"> View Project</a></td><br><br>
+	
+	</div>

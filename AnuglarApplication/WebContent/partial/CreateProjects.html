@@ -1,0 +1,123 @@
+<div  ng-init="createCtrl.init()">
+
+<form>
+<fieldset>
+<legend>Create Fundraiser</legend>
+<div class="form-group">
+		<label for="Title">Title</label>
+		<input class="form-control" type="text" name="Title" id="Title" placeholder="Your Fundraiser Name"
+		 ng-model="createCtrl.project.title" required/>
+	</div>
+	<div class="form-group">
+		<label for="goal">Goal</label>
+		<input class="form-control" type="number" name="goal" id="goal" 
+		placeholder="Your amount" ng-model="createCtrl.project.goal" required/>
+	</div>
+	<div class="form-group">
+		<label for="sdescription">Short Description</label>
+		<input class="form-control" type="text" name="sdescription" id="sdescription" placeholder="Fundraiser Description"
+		 ng-model="createCtrl.project.shortdesc" required/>
+	</div>
+	<div class="form-group">
+		<label for="description">Long Description</label>
+		<textArea class="form-control" name="description" id="description" placeholder="Fundraiser Description"
+		 ng-model="createCtrl.project.description" required/></textArea>
+	</div>	
+	
+	
+	<div class='form-group'>
+					<label for='category'>Category</label>
+					
+							<div class='form-group internal'>
+								<select class='form-control' id='category'
+									ng-model="createCtrl.project.category" required>
+									<option ng-repeat="category in createCtrl.categories ">{{category.categoryName}}</option>
+									
+									
+								</select>
+						
+						</div>
+						</div>
+	
+	<div class="form-group">
+	<label for="date1">End Date</label>
+	
+	<input class="form-control" type="date" name="date1" id="date1" 
+	placeholder="End Date" ng-model="createCtrl.project.endDate" required/ >
+	</div>
+	
+	
+	
+	</fieldset>
+	
+	<fieldset>
+	<legend>Services</legend>
+	
+	
+	<div class="form-group">
+  <label for="boxNumber">Choose the number of services:</label>
+  <select name="number" id="choose" onchange="show()">
+  <option value=" "> </option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  </select>
+  </div>
+  
+  <!-- Service1 -->
+	<div  id="project1" class="hidden1">
+	<div class="form-group">
+		<label for="project1Name">Service 1 Description</label>
+		<input class="form-control" type="text" name="project1Name" id="project1Name" 
+		placeholder="Your Service Description" ng-model="createCtrl.project.service1"/>
+	</div>
+	<div class="form-group">
+		<label for="project1Desc">Service 1 Amount</label>
+		<input class="form-control" type="number" name="project1Desc" id="project1Desc" 
+		placeholder="Your Service Amount" ng-model="createCtrl.project.amount1"/>
+	</div>
+	</div>
+	
+	<!-- Project2 -->
+	<div  id="project2" class="hidden2">
+	<div class="form-group">
+		<label for="project2Name">Service 2 Description</label>
+		<input class="form-control" type="text" name="project2Name" id="project2Name" 
+		placeholder="Your Service Description" ng-model="createCtrl.project.service2"/>
+	</div>
+	<div class="form-group">
+		<label for="project2Desc">Service 2 Amount</label>
+		<input class="form-control" type="number" name="project2Desc" id="project2Desc" 
+		placeholder="Your Service Amount" ng-model="createCtrl.project.amount2"/>
+	</div>
+	</div>
+	<!-- Project3 -->
+	<div  id="project3" class="hidden3">
+	<div  class="form-group">
+		<label for="project3Name">Service 3 Description</label>
+		<input  class="form-control" type="text" name="project3Name" id="project3Name" 
+		placeholder="Your Service Description" ng-model="createCtrl.project.service3"/>
+	</div>
+	<div class="form-group">
+		<label for="project3Desc">Service 3 Amount</label>
+		<input class="form-control" type="number" name="project3Desc" id="project3Desc" 
+		placeholder="Your Service Amount" ng-model="createCtrl.project.amount3"/>
+	</div>
+	</div>
+	
+	</fieldset>
+	
+	
+	
+	<div class='form-group'>
+					
+						<button class='btn btn-primary' ng-click="createCtrl.submit()"
+							type='submit'>Create Project</button>
+					</div>
+					{{createCtrl.message}}
+</form>
+
+
+
+
+</div>

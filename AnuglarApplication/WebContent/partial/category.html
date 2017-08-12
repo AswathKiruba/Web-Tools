@@ -1,0 +1,30 @@
+<div class="page-header" ng-init="categoryCtrl.init()">
+<h3><center>Category</center></h3>
+</div>
+
+<form class="form-horizontal">
+<label for="AddCategory" ><h3>Add Category</h3></label>
+<input type="text" class="form-control" placeholder="Add Category"
+					id="AddCategory" ng-model="categoryCtrl.categoryName" autofocus/><br>
+					<label>
+				<button type="submit" ng-click="categoryCtrl.check()" align="right"
+			class="btn btn-success pull-right" >ADD</button>
+			</label>
+			</form>
+		{{categoryCtrl.message}}
+			{{categoryCtrl.checkmessage}}
+		
+<br>
+<br>
+
+<h3>Edit and Delete Categories</h3>	
+{{categoryCtrl.activemessage}}
+{{categoryCtrl.disablemessage}}
+{{categoryCtrl.deletemessage}}
+     <div ng-repeat="category in categoryCtrl.categories " class="block">{{category.categoryName}}<br>
+     <button type="submit" ng-click="categoryCtrl.active(category)" 
+			class="btn btn-success" >ACTIVATE</button>
+     <button type="submit" ng-click="categoryCtrl.disable(category)" 
+			class="btn btn-warning" >DISABLE</button>
+			<button type="submit" ng-click="categoryCtrl.deleted(category)" 
+			class="btn btn-danger" >DELETE</button> </div>

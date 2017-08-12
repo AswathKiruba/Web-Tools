@@ -1,0 +1,94 @@
+
+
+<br>
+
+<div class="page-header"><center><h3>Payment Page</h3></center></div>
+
+<div class="container">
+<form class='form-horizontal' role='form'>
+	
+				<div class='form-group'>
+					<label 
+						for='firstName'>Name:<soft>{{donateCtrl.name}}<soft></label>
+					</div>
+					
+					<div class='form-group'>
+					<label 
+						for='pName'>ProjectID:<soft>{{data.projectID}}<soft></label>
+					</div>
+					
+					<div class='form-group'>
+					<label 
+						for='sName'>Project Name:<soft>{{data.title}}<soft></label>
+					</div>
+					<div class='form-group'>
+					<label 
+						for='amount'>Amount</label>
+					
+						<div class='form-group'>
+							
+								<input class='form-control' id='amount'
+									placeholder='Amount' ng-model="donateCtrl.donate.amount"
+									type='number' required>
+							</div>
+						</div>
+				
+				
+				<div class='form-group'>
+					<label 
+						for='cardno'>Card Number</label>
+					
+						<div class='form-group'>
+							
+								<input class='form-control' id='cardno'
+									placeholder='Enter your Card Number' ng-model="donateCtrl.donate.cardno"
+									type='number' required>
+							</div>
+						</div>
+				
+				<div class='form-group'>
+					<label 
+						for='cvv'>CVV</label>
+				
+						<div class='form-group'>
+							
+								<input class='form-control' id='cvv'
+									placeholder='Enter your CVV Number' ng-model="donateCtrl.donate.cvv"
+									type='number' required>
+							</div>
+						</div>
+					
+				
+				<div class='form-group'>
+					<label 
+						for='baddress'>ADDRESS</label>
+					
+						<div class='form-group'>
+						
+								<input class='form-control' id='baddress'
+									placeholder='Enter your Address' ng-model="donateCtrl.donate.baddress"
+									type='text' required>
+							</div>
+						</div>
+					
+				
+				<div class='form-group'>
+					<label 
+						for='city'>CITY</label>
+				
+						<div class='form-group'>
+							
+								<input class='form-control' id='city'
+									placeholder='Enter your City' ng-model="donateCtrl.donate.city"
+									type='text' required>
+							</div>
+						</div>
+						
+						<div>
+						<button class='btn btn-primary' ng-click="donateCtrl.pay(data.projectID)"
+							type='submit'>PAY NOW</button>
+							{{donateCtrl.message}}
+					</div>
+					
+					</div>
+					

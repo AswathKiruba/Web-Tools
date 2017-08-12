@@ -1,0 +1,44 @@
+<div class="page-header" > <h3><center>Projects</center></h3> </div>
+{{viewCtrl.checkmessage1}}
+{{viewCtrl.cart}}
+<div ng-init="viewCtrl.init()">
+
+
+
+<div class='form-group'>
+					<label 
+						for='idRole'>Order By</label>
+					<div class='form-group internal'>
+								<select class='form-control' placeholder="Order By" id='idRole' 
+									ng-model="sortData" required>
+									<option value="title">Title</option>
+									<option value="goal">Goal</option>
+								</select>
+							</div>
+						</div> 
+				
+				
+				
+				
+
+
+
+<div ng-repeat="project in viewCtrl.projects | orderBy :sortData">
+			<div><b>Project Title:</b>{{ project.title}} <br></div>
+			<div><b>Short Desc:</b>{{ project.shortdesc}}</div>
+			<div><b>End Date:</b>{{ project.endDate}}</div>
+			<div><b>Goal:</b>{{ project.goal | currency:"$":2}}</div>
+			<div><b>Collected:</b>{{ project.count | currency:"$":2}}</div>
+			<a ng-click="viewCtrl.like(project)" class="btn btn-default">
+			<span class="glyphicon glyphicon-thumbs-up"></span></a>{{project.liked}}
+			&nbsp;&nbsp;
+			<a ng-click="viewCtrl.dislike(project)" class="btn btn-default">
+			<span class="glyphicon glyphicon-thumbs-down"></span></a>{{project.hate}}
+			<br><a class="btn btn-success" ng-click="viewCtrl.viewProject(project)">View</a>
+			<a class="btn btn-info" ng-click="viewCtrl.addCart(project)">Add to cart</a>
+			<br><br>
+</div>
+
+
+
+</div>

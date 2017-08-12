@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2017 1:00:33 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="neu.edu.entity.UserComment" table="user_comment" catalog="mydb" optimistic-lock="version">
+        <id name="commentid" type="java.lang.Integer">
+            <column name="COMMENTID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userProject" class="neu.edu.entity.UserProject" fetch="select">
+            <column name="PROJECTID" />
+        </many-to-one>
+        <property name="message" type="string">
+            <column name="MESSAGE" length="100" />
+        </property>
+        <property name="username" type="string">
+            <column name="USERNAME" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

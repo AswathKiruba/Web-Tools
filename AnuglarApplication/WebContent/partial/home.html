@@ -1,0 +1,72 @@
+	<style >
+.container {
+  width: 70%;
+  background: #eee;
+  margin: 10px auto;
+  position: relative;
+  text-align:center;
+}
+
+.block {
+  background: #DCDCDC;
+  height: 30px;
+  width: 100px;
+  display:inline-block;
+  margin: 10px;
+}
+
+</style>
+<!-- <div id="barchart_material" style="width: 900px; height: 500px;"></div> -->
+
+<!--<div id="container"></div>-->
+	
+
+<font color="red">{{cat}}</font>
+	<div class="container" id ="categories"  ng-init="homeCtrl.init1()">
+     
+    <div class="page-header" ><h3>Projects Trending Now</h3></div>
+    
+    <div ng-repeat="proj in homeCtrl.projs | orderBy: '-liked' | limitTo:5">
+     <div class="block" ><a ng-click="homeCtrl.viewProjectTrend(proj)"
+					class="btn btn-default btn-block">{{proj.title}} </a></div></div>
+			</div>
+			
+
+
+<div class="container" id ="categories" ng-init="homeCtrl.init()" >
+<div class="page-header"><h3>Categories</h3></div>
+
+<div class="col-sm-12 col-md-10  col-md-offset-1 ">
+ <input type="text" class="form-control" placeholder="Search Category" ng-model="searchText" active>
+   </div>
+   <br>
+
+     <div ng-repeat="category in homeCtrl.categories | filter:searchText">
+     <div class="block" ><a ng-click="homeCtrl.viewProject(category)"
+					class="btn btn-default btn-block" >{{category.categoryName}} </a></div></div>
+					
+			</div>	
+			
+			
+				<div class="container" id ="categories"  ng-init="homeCtrl.init3()">
+				<div class="page-header"><h3>All Projects</h3></div>
+				<div class='form-group'>
+				<select class='form-control' ng-model="search" ><option ng-repeat="p in homeCtrl.categories">{{p.categoryName}}</option></select></div>
+				<div ng-init="homeCtrl.init2()">
+				<div ng-repeat="project in allProject | filter:search">
+			<div class="block" ><a ng-click="homeCtrl.viewProjectsp({project})"
+					class="btn btn-default btn-block">{{project.title}} </a></div>
+			</div></div>
+		
+		
+		
+		
+		
+		
+   
+			
+  
+
+    
+			
+			

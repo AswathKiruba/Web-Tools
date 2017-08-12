@@ -1,0 +1,28 @@
+
+<div class="page-header"><h3><center>{{data.title}}</center></h3></div>
+
+<div><h4>Short Description:</h4>&nbsp{{data.shortdesc}}</div><br>
+<div><h4>Description:</h4>&nbsp{{data.description}}</div><br>
+<div><h4>Category:</h4>&nbsp{{data.category}}</div><br>
+<div><h4>End Date:</h4>&nbsp{{data.endDate | date : format : mediumDate}}</div><br>
+<div><h4>Goal:</h4>&nbsp{{data.goal | currency:"$":2}}</div><br>
+<div><h3>Services</h3></div>
+{{data.service1}}&nbsp{{data.amount1}}<br>
+{{data.service2}}&nbsp{{data.amount2}}<br>
+{{data.service3}}&nbsp{{data.amount3}}
+
+<div class="panel panel-primary" ng-init="singleCtrl.init(data)">
+        <div class="panel-heading">Comments</div>
+            <div class="panel-body"><br>
+           <p ng-repeat="m in singleCtrl.message">{{m.message}},{{m.username}}</p><br>
+                <div class="form-group">
+                <input type="text" class="form-control" placeholder="Type Here" ng-model="singleCtrl.messageText" class="cleardefault" id="lollu">
+                </div>
+                <button type="submit" class="btn btn-success" ng-Click="singleCtrl.send(data)">Comment</button>
+                {{singleCtrl.successmessage}}
+            </div>
+        </div>
+ 	<button class='btn btn-danger' ng-click="singleCtrl.cancel()"
+							 type='submit'>BACK</button>
+							 <button class='btn btn-success' ng-click="singleCtrl.donate(data)"
+							style='float: right' type='submit'>DONATE NOW</button>

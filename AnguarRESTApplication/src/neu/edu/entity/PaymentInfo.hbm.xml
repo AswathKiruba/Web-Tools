@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2017 1:00:33 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="neu.edu.entity.PaymentInfo" table="payment_info" catalog="mydb" optimistic-lock="version">
+        <id name="paymentid" type="java.lang.Integer">
+            <column name="PAYMENTID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userAccount" class="neu.edu.entity.UserAccount" fetch="select">
+            <column name="USERID" />
+        </many-to-one>
+        <many-to-one name="userProject" class="neu.edu.entity.UserProject" fetch="select">
+            <column name="PROJECTID" />
+        </many-to-one>
+        <property name="cardno" type="string">
+            <column name="CARDNO" length="45" />
+        </property>
+        <property name="cvv" type="java.lang.Integer">
+            <column name="CVV" />
+        </property>
+        <property name="baddress" type="string">
+            <column name="BADDRESS" length="145" />
+        </property>
+        <property name="city" type="string">
+            <column name="CITY" length="45" />
+        </property>
+        <property name="amount" type="java.lang.Integer">
+            <column name="AMOUNT" />
+        </property>
+    </class>
+</hibernate-mapping>

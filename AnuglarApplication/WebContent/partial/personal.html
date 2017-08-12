@@ -1,0 +1,39 @@
+<div class="page-header"><center><h3>Payment Cities</h3></center>
+</div>
+<div ng-init="personalCtrl.init1()">
+<div ng-repeat="city in personalCtrl.city">{{city.city}}</div>
+
+</div>
+
+<div class="page-header"><center><h3>Stats</h3></center>
+</div>
+<div ng-init="personalCtrl.init2()">
+
+<b>Total number of user:</b>{{stat.users-1}}<br>
+<b>Total number of Categories:</b>{{stat.category}}<br>
+<b>Total number of Projects:</b>{{stat.projects}}<br>
+<b>Total number of Payments:</b>{{stat.payment}}<br>
+</div>
+
+
+<div class="page-header"><center><h3>Projects</h3></center>
+</div>
+
+<div class="col-sm-12 col-md-10  col-md-offset-1 ">
+ <input type="text" class="form-control" placeholder="Search Projects" ng-model="searchText" active>
+   </div>
+<div ng-init="personalCtrl.init()">
+{{personalCtrl.disablemessage}}
+<div ng-repeat="project in personalCtrl.projects | filter:searchText"><br><br>
+			<div><b>Project Title:</b>{{ project.title}} <br></div>
+			<div><b>Short Desc:</b>{{ project.shortdesc}}</div>
+			<div><b>End Date:</b>{{ project.endDate}}</div>
+			<div><b>Goal:</b>{{ project.goal | currency:"$":2}}</div>
+			<div><b>Collected:</b>{{ project.count | currency:"$":2}}</div>
+			<br><a class="btn btn-success" ng-click="personalCtrl.viewProject(project)"  >View</a>
+			<a class="btn btn-warning" ng-click="personalCtrl.disable(project)"  >Disable</a>
+			<br><br>
+</div>
+
+
+</div>

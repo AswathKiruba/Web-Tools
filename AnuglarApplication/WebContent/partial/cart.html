@@ -1,0 +1,16 @@
+
+
+<div class="page-header" > <h3><center>Projects</center></h3> </div>
+{{cartCtrl.checkmessage1}}
+<div ng-init="cartCtrl.init()">
+
+<div ng-repeat="project in cartCtrl.projects | orderBy :sortData">
+			<div><b>Project Title:</b>{{ project.title}} <br></div>
+			<div><b>Short Desc:</b>{{ project.shortdesc}}</div>
+			<div><b>End Date:</b>{{ project.endDate}}</div>
+			<div><b>Goal:</b>{{ project.goal | currency:"$":2}}</div>
+			<div><b>Collected:</b>{{ project.count | currency:"$":2}}</div>
+			<br><a class="btn btn-success" ng-click="cartCtrl.viewProject(project)">View</a>
+			<br><br>
+</div>
+</div>

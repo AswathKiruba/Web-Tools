@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2017 1:00:33 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="neu.edu.entity.UserAccount" table="user_account" catalog="mydb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="string">
+            <column name="USER_NAME" length="30" unique="true" />
+        </property>
+        <property name="firstname" type="string">
+            <column name="FIRSTNAME" length="100" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="45" />
+        </property>
+        <property name="role" type="string">
+            <column name="ROLE" length="15" />
+        </property>
+        <property name="lastname" type="string">
+            <column name="LASTNAME" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="45" />
+        </property>
+        <set name="paymentInfos" table="payment_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERID" />
+            </key>
+            <one-to-many class="neu.edu.entity.PaymentInfo" />
+        </set>
+        <set name="userProjects" table="user_project" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERID" not-null="true" />
+            </key>
+            <one-to-many class="neu.edu.entity.UserProject" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+
+
+<div class="page-header"><h3><center>{{data.title}}</center></h3></div>
+
+<div><h4>Short Description:</h4>&nbsp{{data.shortdesc}}</div><br>
+<div><h4>Description:</h4>&nbsp{{data.description}}</div><br>
+<div><h4>Category:</h4>&nbsp{{data.category}}</div><br>
+<div><h4>End Date:</h4>&nbsp{{data.endDate | date : format : mediumDate}}</div><br>
+<div><b>Collected:</b>{{ project.count | currency:"$":2}}</div>
+<div><h4>Goal:</h4>&nbsp{{data.goal | currency:"$":2}}</div><br>
+<div><h4>Likes:</h4>{{ project.liked}}</div>
+			<div><h4>Dislikes:</h4>{{ project.hate}}</div>
+
+
+        
+        <button class='btn btn-danger' ng-click="projectCtrl.cancel()"
+							 type='submit'>BACK</button>

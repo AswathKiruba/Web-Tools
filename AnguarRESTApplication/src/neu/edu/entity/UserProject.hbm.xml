@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2017 1:00:33 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="neu.edu.entity.UserProject" table="user_project" catalog="mydb" optimistic-lock="version">
+        <id name="projectid" type="java.lang.Integer">
+            <column name="PROJECTID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userAccount" class="neu.edu.entity.UserAccount" fetch="select">
+            <column name="USERID" not-null="true" />
+        </many-to-one>
+        <property name="title" type="string">
+            <column name="TITLE" length="45" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="300" />
+        </property>
+        <property name="enddate" type="date">
+            <column name="ENDDATE" length="10" />
+        </property>
+        <property name="category" type="string">
+            <column name="CATEGORY" length="45" />
+        </property>
+        <property name="status" type="string">
+            <column name="STATUS" length="45" />
+        </property>
+        <property name="goal" type="java.lang.Float">
+            <column name="GOAL" precision="12" scale="0" />
+        </property>
+        <property name="count" type="java.lang.Integer">
+            <column name="COUNT" />
+        </property>
+        <property name="shortdesc" type="string">
+            <column name="SHORTDESC" length="105" />
+        </property>
+        <property name="liked" type="java.lang.Integer">
+            <column name="LIKED" />
+        </property>
+        <property name="hate" type="java.lang.Integer">
+            <column name="HATE" />
+        </property>
+        <property name="received" type="java.lang.Float">
+            <column name="RECEIVED" precision="12" scale="0" />
+        </property>
+        <property name="service1" type="string">
+            <column name="SERVICE1" length="100" />
+        </property>
+        <property name="service2" type="string">
+            <column name="SERVICE2" length="100" />
+        </property>
+        <property name="service3" type="string">
+            <column name="SERVICE3" length="100" />
+        </property>
+        <property name="amount1" type="string">
+            <column name="AMOUNT1" length="20" />
+        </property>
+        <property name="amount2" type="string">
+            <column name="AMOUNT2" length="20" />
+        </property>
+        <property name="amount3" type="string">
+            <column name="AMOUNT3" length="20" />
+        </property>
+        <property name="cart" type="string">
+            <column name="CART" length="45" />
+        </property>
+        <set name="userComments" table="user_comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PROJECTID" />
+            </key>
+            <one-to-many class="neu.edu.entity.UserComment" />
+        </set>
+        <set name="paymentInfos" table="payment_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PROJECTID" />
+            </key>
+            <one-to-many class="neu.edu.entity.PaymentInfo" />
+        </set>
+    </class>
+</hibernate-mapping>

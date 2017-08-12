@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2017 1:00:33 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="neu.edu.entity.UserMessage" table="user_message" catalog="mydb" optimistic-lock="version">
+        <id name="messageid" type="java.lang.Integer">
+            <column name="MESSAGEID" />
+            <generator class="identity" />
+        </id>
+        <property name="sentid" type="java.lang.Integer">
+            <column name="SENTID" />
+        </property>
+        <property name="sentname" type="string">
+            <column name="SENTNAME" length="45" />
+        </property>
+        <property name="recieveid" type="java.lang.Integer">
+            <column name="RECIEVEID" />
+        </property>
+        <property name="receivername" type="string">
+            <column name="RECEIVERNAME" length="45" />
+        </property>
+        <property name="message" type="string">
+            <column name="MESSAGE" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>
